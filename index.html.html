@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gagan Saini | Data Analyst Portfolio</title>
+<meta name="description" content="Portfolio of Gagan Saini: MIS Executive moving into data analytics, working with Advanced Excel, SQL and Power BI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f8fa; --surface:#ffffff; --ink:#1b2a33; --muted:#566b76; --line:#d6e3e8; --accent:#1f7a8c; --accent-ink:#ffffff; --head:#e1eff3;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0d1a20; --surface:#14262d; --ink:#e6f1f4; --muted:#97b1ba; --line:#25414b; --accent:#5cc4d6; --accent-ink:#08181c; --head:#1a323b; color-scheme:dark;}
+}
+:root[data-theme="dark"]{--bg:#0d1a20; --surface:#14262d; --ink:#e6f1f4; --muted:#97b1ba; --line:#25414b; --accent:#5cc4d6; --accent-ink:#08181c; --head:#1a323b; color-scheme:dark;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:radial-gradient(60rem 28rem at 88% -6%,var(--head),transparent 70%) no-repeat,var(--bg);color:var(--ink);font:400 1.0625rem/1.65 "Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;line-height:1.15;margin:0}
+a{color:var(--accent)}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1.25rem}
+header.top{border-bottom:1px solid var(--line);background:var(--bg)}
+header.top .wrap{display:flex;gap:1.25rem;align-items:center;justify-content:space-between;padding-top:.9rem;padding-bottom:.9rem;flex-wrap:wrap}
+header.top strong{font-family:"Bricolage Grotesque",sans-serif;font-size:1.1rem}
+nav{display:flex;gap:1.1rem;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--ink);text-decoration:underline}
+.hero{padding:3.5rem 0 3rem;display:grid;gap:2.5rem;grid-template-columns:1.1fr 1fr;align-items:center}
+.hero h1{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:700;letter-spacing:-.02em}
+.hero p.role{font-size:1.25rem;margin:.9rem 0 1.2rem;font-weight:500}
+.hero p.lead{color:var(--muted);max-width:34rem;margin:0 0 1.6rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1.15rem;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent);background:transparent}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:.95rem}
+.sheet table{width:100%;border-collapse:collapse}
+.sheet th,.sheet td{border:1px solid var(--line);padding:.55rem .7rem;text-align:left;vertical-align:top}
+.sheet thead th{background:var(--head);color:var(--muted);font-weight:600;text-align:center;font-size:.8rem;padding:.3rem}
+.sheet tbody th{background:var(--head);color:var(--muted);font-weight:600;width:2.2rem;text-align:center;font-size:.8rem}
+.sheet td.k{color:var(--muted);width:42%}
+.sheet td.v{font-weight:600}
+.sheet .sel{outline:2px solid var(--accent);outline-offset:-2px}
+section{padding:3rem 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.7rem,4vw,2.2rem);margin-bottom:1.4rem}
+.cols{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.1rem 1.2rem}
+.box h3{font-size:1.1rem;margin-bottom:.45rem}
+.box p,.box ul{margin:0;color:var(--muted)}
+.box ul{padding-left:1.1rem}
+.job{margin-bottom:2rem}
+.job h3{font-size:1.25rem}
+.job .meta{color:var(--muted);margin:.2rem 0 .7rem}
+.job ul{margin:0;padding-left:1.2rem}
+.job li{margin:.3rem 0}
+.proj{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.proj .box{border-left:4px solid var(--accent)}
+.proj .tag{display:inline-block;font-size:.85rem;font-weight:600;color:var(--accent);margin-bottom:.4rem}
+.contact p{margin:.3rem 0}
+footer{border-top:1px solid var(--line);padding:1.5rem 0 2rem;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding-top:2.2rem}}
+.demo{display:grid;gap:1.5rem;grid-template-columns:1.1fr 1fr;align-items:center}
+.demo svg{width:100%;height:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.info{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.2rem;position:relative}
+.info .tool{display:inline-block;font-weight:600;font-size:.85rem;color:var(--accent);margin-bottom:.3rem}
+.info h3{font-size:1.35rem;margin-bottom:.6rem}
+.info p{margin:0;color:var(--muted);min-height:4.8em}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
+.chips button,.play{font:inherit;font-size:.9rem;font-weight:500;padding:.4rem .75rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chips button:focus-visible,.play:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.play{margin-top:.8rem}
+.bar{fill:var(--accent);transform-box:fill-box;transform-origin:bottom;transition:transform .7s cubic-bezier(.3,1.4,.5,1)}
+.mk{opacity:0;transition:opacity .3s}
+.mk.on{opacity:1}
+.skin{fill:#e6b48f}.hair{fill:#2b2018}.shirt{fill:var(--accent)}.ink{fill:var(--ink)}.ln{stroke:var(--ink);fill:none;stroke-width:2.5;stroke-linecap:round}
+.head{animation:bob 2.4s ease-in-out infinite}
+.eye{transform-box:fill-box;transform-origin:center;animation:blink 4s infinite}
+.arm{transform-box:fill-box;transform-origin:left center;animation:type .5s ease-in-out infinite alternate}
+.steam{stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;animation:steam 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-3px)}}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+@keyframes type{to{transform:rotate(-5deg)}}
+@keyframes steam{0%{opacity:0;transform:translateY(4px)}50%{opacity:.8}100%{opacity:0;transform:translateY(-8px)}}
+.crew{display:grid;gap:.9rem;grid-template-columns:repeat(5,minmax(10.5rem,1fr));margin-top:2rem;overflow-x:auto;padding-bottom:.6rem}
+.mate{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:.9rem;text-align:center}
+.mate svg{width:100%;height:auto;max-width:11rem;display:block;margin:0 auto .4rem}
+.mate h4{font-family:"Bricolage Grotesque",sans-serif;font-size:1.05rem;margin:0}
+.mate .say{margin:.35rem 0 .7rem;color:var(--muted);font-size:.95rem;min-height:4.2em}
+.hear{font:inherit;font-size:.88rem;font-weight:500;padding:.35rem .8rem;border-radius:999px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+.hear:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.sweep{transform-box:fill-box;transform-origin:top left;animation:sweep .7s ease-in-out infinite alternate}
+.dirt{fill:#d64b3c;animation:dirt 1.4s linear infinite}
+.pupil{animation:look 2.6s ease-in-out infinite}
+.ant{fill:#d64b3c;animation:ping 1.2s steps(2) infinite}
+.scan{fill:var(--accent);opacity:.35;animation:scan 1.8s linear infinite}
+.needle{stroke:#d64b3c;stroke-width:3;stroke-linecap:round;transform-box:view-box;transform-origin:128px 96px;animation:gauge 1.9s ease-in-out infinite alternate}
+.hop{animation:hop .5s ease-out}
+@keyframes sweep{to{transform:rotate(14deg)}}
+@keyframes dirt{0%{transform:translateX(-28px);opacity:1}100%{transform:translateX(32px);opacity:0}}
+@keyframes look{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+@keyframes ping{50%{opacity:.15}}
+@keyframes scan{0%{transform:translateY(0)}100%{transform:translateY(20px)}}
+@keyframes gauge{from{transform:rotate(-55deg)}to{transform:rotate(55deg)}}
+@keyframes hop{40%{transform:translateY(-8px)}}
+.pivot{transform-box:view-box;transform-origin:130px 88px;animation:pivot 3.6s ease-in-out infinite}
+.spark{fill:#f5c542;transform-box:fill-box;transform-origin:center;animation:twinkle 1s ease-in-out infinite alternate}
+@keyframes pivot{0%,30%{transform:rotate(0)}60%,100%{transform:rotate(90deg)}}
+@keyframes twinkle{from{transform:scale(.5);opacity:.5}to{transform:scale(1.4);opacity:1}}
+.box,.info,.mate,.sheet,.demo svg{border-radius:14px}
+.box,.info,.mate,.sheet{box-shadow:0 1px 2px rgba(20,60,80,.06),0 8px 22px rgba(20,60,80,.06)}
+.btn,.chips button,.play,.hear{border-radius:999px}
+.proj .box{border-left-width:5px}
+section{border-top-color:transparent}
+section h2{letter-spacing:-.01em}
+@media (max-width:760px){.demo{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.head,.eye,.arm,.steam,.sweep,.dirt,.pupil,.ant,.scan,.needle,.hop,.pivot,.spark{animation:none}.bar{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <strong>Gagan Saini</strong>
+    <nav aria-label="Sections">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#demo">At work</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Gagan Saini</h1>
+      <p class="role">MIS Executive moving into data analytics</p>
+      <p class="lead">I clean, check and report on large datasets for HR and e-commerce teams. I work in Advanced Excel and SQL, and I’m now looking for an entry-level Data Analyst role.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="sheet" role="img" aria-label="Summary table: 3+ years of experience, largest batch 4,200+ products, tools Excel, SQL and Power BI, location Najafgarh, West Delhi">
+      <table aria-hidden="true">
+        <thead><tr><th></th><th>A</th><th>B</th></tr></thead>
+        <tbody>
+          <tr><th>1</th><td class="k">Experience</td><td class="v sel">3+ years</td></tr>
+          <tr><th>2</th><td class="k">Largest batch handled</td><td class="v">4,200+ products</td></tr>
+          <tr><th>3</th><td class="k">Main tools</td><td class="v">Excel, SQL, Power Query</td></tr>
+          <tr><th>4</th><td class="k">Based in</td><td class="v">Najafgarh, West Delhi</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<section id="about"><div class="wrap">
+  <h2>About</h2>
+  <p style="max-width:42rem;margin:0">I started in e-commerce data operations, listing thousands of products across Amazon, Flipkart, Myntra, Meesho and Ajio from Excel sheets. That is where I learned to handle bulk data accurately. Today I work as an MIS Executive for an HR company, building reports and managing data for corporate clients. I recently completed a Data Analyst course and I’m studying for an MCA at IGNOU.</p>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <div class="cols">
+    <div class="box"><h3>Advanced Excel</h3><p>XLOOKUP (including wildcard lookups), INDEX-MATCH, VLOOKUP, Pivot Tables, Power Query, Conditional Formatting, Data Validation, Nested IF, dashboards</p></div>
+    <div class="box"><h3>Data analysis</h3><p>Data cleaning, data transformation, data validation, MIS reporting, KPI tracking, trend analysis, data visualization</p></div>
+    <div class="box"><h3>Tools</h3><p>Microsoft Excel, Google Sheets, batch scripting. Learning: SQL, Power BI, Python</p></div>
+    <div class="box"><h3>SQL</h3><p>Joins, aggregations, subqueries, filtering, data extraction</p></div>
+    <div class="box"><h3>Working with people</h3><p>Client communication, stakeholder coordination, problem solving, attention to detail</p></div>
+  </div>
+</div></section>
+
+<section id="demo"><div class="wrap">
+  <h2>Meet the analyst at work</h2>
+  <div class="demo">
+    <svg viewBox="0 0 360 250" role="img" aria-label="Cartoon analyst with glasses typing at a desk while a monitor shows charts">
+      <rect x="0" y="206" width="360" height="44" fill="var(--line)"/>
+      <rect x="150" y="36" width="196" height="136" rx="9" class="ink"/>
+      <rect x="158" y="44" width="180" height="112" rx="4" fill="var(--surface)"/>
+      <rect x="236" y="172" width="24" height="34" class="ink"/>
+      <text id="scrTool" x="168" y="62" font-size="12" font-weight="600" fill="var(--ink)">Excel</text>
+      <g id="bars"><rect class="bar" x="172" y="76" width="22" height="68"/><rect class="bar" x="200" y="76" width="22" height="68"/><rect class="bar" x="228" y="76" width="22" height="68"/><rect class="bar" x="256" y="76" width="22" height="68"/><rect class="bar" x="284" y="76" width="22" height="68"/></g>
+      <line x1="166" y1="144" x2="326" y2="144" stroke="var(--muted)" stroke-width="1.5"/>
+      <g id="mkWarn" class="mk"><circle cx="318" cy="58" r="10" fill="#d64b3c"/><text x="318" y="63" font-size="14" font-weight="700" text-anchor="middle" fill="#fff">!</text></g>
+      <g id="mkOk" class="mk"><circle cx="318" cy="58" r="10" fill="#2f9e63"/><path d="M312 58l4 4 8-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+      <rect x="120" y="198" width="70" height="8" rx="3" class="ink"/>
+      <rect x="22" y="176" width="26" height="30" rx="4" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"/>
+      <path class="steam" d="M30 168c-4-6 4-8 0-14"/><path class="steam" style="animation-delay:.8s" d="M40 168c-4-6 4-8 0-14"/>
+      <path class="shirt" d="M52 214c0-46 18-84 52-84s52 38 52 84z"/>
+      <path class="arm ln shirt" style="stroke:var(--accent);stroke-width:13" d="M128 160L158 196"/>
+      <circle cx="160" cy="197" r="7" class="skin"/>
+      <g class="head">
+        <circle cx="102" cy="100" r="30" class="skin"/>
+        <path class="hair" d="M72 98c0-26 20-36 38-32 14 3 24 14 22 32-8-14-18-18-34-18-12 0-20 6-26 18z"/>
+        <circle cx="92" cy="104" r="9" class="ln"/><circle cx="114" cy="104" r="9" class="ln"/><path class="ln" d="M101 104h4"/>
+        <circle class="eye ink" cx="93" cy="104" r="2.6"/><circle class="eye ink" cx="115" cy="104" r="2.6"/>
+        <path id="mouth" class="ln" d="M94 120q9 7 18 0"/>
+      </g>
+    </svg>
+    <div class="info" aria-live="polite">
+      <span class="tool" id="iTool"></span>
+      <h3 id="iName"></h3>
+      <p id="iJoke"></p>
+      <div class="chips" id="chips" role="group" aria-label="Choose a task"></div>
+      <button class="play" id="play" type="button">Pause</button>
+    </div>
+  </div>
+  <h3 style="margin-top:2.5rem;font-size:1.4rem">His teammates</h3>
+  <div class="crew">
+    <div class="mate">
+      <svg viewBox="0 0 160 120" role="img" aria-label="Cartoon cat sweeping red error cells off a desk with a broom">
+        <rect y="104" width="160" height="16" fill="var(--line)"/>
+        <ellipse cx="62" cy="94" rx="26" ry="14" fill="#e8924a"/>
+        <path d="M42 50l2-20 15 11zM82 50l-2-20-15 11z" fill="#e8924a"/>
+        <circle cx="62" cy="62" r="22" fill="#e8924a"/>
+        <circle cx="54" cy="60" r="3" class="ink"/><circle cx="70" cy="60" r="3" class="ink"/>
+        <path class="ln" style="stroke-width:2" d="M58 69q4 4 8 0M40 65h-9M40 70l-8 4M84 65h9M84 70l8 4"/>
+        <g class="sweep"><path class="ln" d="M84 72L116 98"/><path d="M110 94l16 12h-20z" fill="#b08a4f"/></g>
+        <rect class="dirt" x="126" y="96" width="8" height="8"/><rect class="dirt" style="animation-delay:.5s" x="126" y="96" width="8" height="8"/><rect class="dirt" style="animation-delay:.9s" x="126" y="96" width="8" height="8"/>
+      </svg>
+      <h4>Cleaner Cat</h4>
+      <p class="say">Data cleaning crew. Sweeps out blanks and duplicates.</p>
+      <button class="hear" type="button">Say something</button>
+    </div>
+    <div class="mate">
+      <svg viewBox="0 0 160 120" role="img" aria-label="Cartoon robot scanning rows of a table">
+        <rect y="104" width="160" height="16" fill="var(--line)"/>
+        <line class="ln" x1="80" y1="22" x2="80" y2="10"/><circle class="ant" cx="80" cy="8" r="4"/>
+        <rect x="54" y="22" width="52" height="34" rx="9" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"/>
+        <circle cx="68" cy="39" r="7" fill="#fff" stroke="var(--ink)" stroke-width="1.5"/><circle cx="92" cy="39" r="7" fill="#fff" stroke="var(--ink)" stroke-width="1.5"/>
+        <circle class="pupil ink" cx="68" cy="39" r="3"/><circle class="pupil ink" cx="92" cy="39" r="3"/>
+        <rect x="48" y="60" width="64" height="44" rx="8" class="shirt"/>
+        <rect x="58" y="67" width="44" height="30" rx="3" fill="var(--surface)"/>
+        <path class="ln" style="stroke-width:1.5" d="M58 77h44M58 87h44"/>
+        <rect class="scan" x="58" y="68" width="44" height="6"/>
+        <path class="ln" d="M48 70l-14 14M112 70l14 14"/>
+      </svg>
+      <h4>SQL Bot</h4>
+      <p class="say">Data extraction. Reads every row, then reads it again.</p>
+      <button class="hear" type="button">Say something</button>
+    </div>
+    <div class="mate">
+      <svg viewBox="0 0 160 120" role="img" aria-label="Cartoon owl watching a gauge with a swinging needle">
+        <rect y="104" width="160" height="16" fill="var(--line)"/>
+        <path d="M40 40l4-16 12 12zM80 40l-4-16-12 12z" fill="#8a6a4a"/>
+        <ellipse cx="60" cy="72" rx="28" ry="32" fill="#8a6a4a"/>
+        <ellipse cx="60" cy="84" rx="16" ry="20" fill="#d9c3a0"/>
+        <circle cx="49" cy="56" r="11" fill="#fff"/><circle cx="71" cy="56" r="11" fill="#fff"/>
+        <circle class="pupil ink" cx="49" cy="56" r="4.5"/><circle class="pupil ink" cx="71" cy="56" r="4.5"/>
+        <path d="M55 66h10l-5 8z" fill="#f0a030"/>
+        <path d="M108 96a20 20 0 0 1 40 0z" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"/>
+        <line class="needle" x1="128" y1="96" x2="128" y2="80"/>
+        <circle cx="128" cy="96" r="3.5" class="ink"/>
+      </svg>
+      <h4>KPI Owl</h4>
+      <p class="say">KPI tracking. Watches the dashboard all night.</p>
+      <button class="hear" type="button">Say something</button>
+    </div>
+    <div class="mate">
+      <svg viewBox="0 0 160 120" role="img" aria-label="Cartoon panda next to a pivot table that rotates">
+        <rect y="104" width="160" height="16" fill="var(--line)"/>
+        <ellipse cx="62" cy="90" rx="26" ry="18" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/>
+        <circle cx="42" cy="34" r="9" class="ink"/><circle cx="82" cy="34" r="9" class="ink"/>
+        <circle cx="62" cy="54" r="25" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/>
+        <ellipse cx="51" cy="52" rx="7" ry="9" class="ink" transform="rotate(20 51 52)"/><ellipse cx="73" cy="52" rx="7" ry="9" class="ink" transform="rotate(-20 73 52)"/>
+        <circle class="eye" cx="52" cy="52" r="2.5" fill="#fff"/><circle class="eye" cx="72" cy="52" r="2.5" fill="#fff"/>
+        <ellipse cx="62" cy="62" rx="4" ry="3" class="ink"/>
+        <path class="ln" style="stroke-width:2" d="M56 67q6 5 12 0"/>
+        <path class="ln" style="stroke:var(--ink);stroke-width:9" d="M84 84L108 92"/>
+        <g class="pivot"><rect x="112" y="70" width="36" height="36" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/><path class="ln" style="stroke-width:1.5" d="M124 70v36M136 70v36M112 82h36M112 94h36"/><rect x="112" y="70" width="36" height="12" class="shirt"/><rect x="112" y="82" width="12" height="24" class="shirt" opacity=".6"/></g>
+      </svg>
+      <h4>Pivot Panda</h4>
+      <p class="say">Pivot Tables. Turns long lists into short answers.</p>
+      <button class="hear" type="button">Say something</button>
+    </div>
+    <div class="mate">
+      <svg viewBox="0 0 160 120" role="img" aria-label="Cartoon wizard casting a spell with a sparkling wand">
+        <rect y="104" width="160" height="16" fill="var(--line)"/>
+        <path d="M44 106q0-34 28-34t28 34z" fill="#5b4bb7"/>
+        <path d="M50 44L72 4l22 40z" fill="#5b4bb7"/><ellipse cx="72" cy="44" rx="30" ry="6" fill="#5b4bb7"/>
+        <circle cx="72" cy="58" r="14" class="skin"/>
+        <circle class="eye" cx="67" cy="56" r="2.2" class="ink" fill="var(--ink)"/><circle class="eye" cx="77" cy="56" r="2.2" fill="var(--ink)"/>
+        <path d="M60 63q12 34 24 0z" fill="#f1f1f1" stroke="var(--ink)" stroke-width="1.5"/>
+        <circle cx="72" cy="22" r="3" fill="#f5c542"/>
+        <path class="ln" d="M96 88L132 58"/>
+        <path class="spark" d="M132 48l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+      </svg>
+      <h4>Power Query Wizard</h4>
+      <p class="say">Power Query. Cleans and reshapes data with saved steps.</p>
+      <button class="hear" type="button">Say something</button>
+    </div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <div class="job">
+    <h3>MIS Executive</h3>
+    <p class="meta">Avant Career Pvt Ltd, July 2025 to present</p>
+    <ul>
+      <li>Manage large HR and operational datasets with a focus on accuracy and data integrity.</li>
+      <li>Automated HR operational reporting for corporate clients using advanced Excel formulas (XLOOKUP, VLOOKUP, Pivot Tables).</li>
+      <li>Run data validation and quality checks, and resolve discrepancies through systematic verification.</li>
+      <li>Work directly with clients to understand their reporting needs and deliver timely MIS reports.</li>
+      <li>Maintain employee and onboarding databases so records stay consistent and audit-ready.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <h3>Product Listing Executive (Data Operations)</h3>
+    <p class="meta">Slowloris Lifestyle Pvt. Ltd., March 2023 to February 2025</p>
+    <ul>
+      <li>Managed and cleaned bulk datasets of 4,000+ rows for multi-channel e-commerce across Amazon, Flipkart, Myntra, Meesho and Ajio.</li>
+      <li>Used batch scripting to move and process data locally, supporting single-batch uploads of 4,200+ products.</li>
+      <li>Structured, validated and standardized product data in Excel across marketplaces.</li>
+      <li>Researched competitors to find pricing and catalog trends that supported business decisions.</li>
+      <li>Improved product visibility through keyword analysis and data-driven listing optimization.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <div class="proj">
+    <div class="box"><span class="tag">Excel</span><h3>Sales Analytics Dashboard</h3><ul><li>Built a dashboard using Pivot Tables and charts.</li><li>Analyzed sales trends and key business metrics.</li><li>Identified top-performing products.</li></ul></div>
+    <div class="box"><span class="tag">Excel, market research</span><h3>E-Commerce Product Performance Analysis</h3><ul><li>Analyzed product catalog and pricing datasets.</li><li>Evaluated competitor trends and marketplace performance.</li><li>Identified opportunities for product optimization.</li></ul></div>
+    <div class="box"><span class="tag">Excel, MIS reporting</span><h3>HR MIS Reporting Analysis</h3><ul><li>Analyzed employee and operational data.</li><li>Created reporting structures to monitor workforce metrics.</li><li>Improved data consistency and reporting accuracy.</li></ul></div>
+    <div class="box"><span class="tag">SQL</span><h3>SQL Data Analysis Project</h3><ul><li>Extracted and analyzed business data with SQL queries.</li><li>Applied joins, aggregations, filtering and grouping.</li><li>Generated reports and insights from structured datasets.</li></ul></div>
+  </div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <h2>Education and certification</h2>
+  <div class="cols">
+    <div class="box"><h3>Master of Computer Applications (MCA)</h3><p>IGNOU, pursuing</p></div>
+    <div class="box"><h3>Bachelor of Computer Applications (BCA)</h3><p>Ganga Institute of Technology and Management, 2021 to 2025</p></div>
+    <div class="box"><h3>Data Analyst Course</h3><p>British College of Language, Najafgarh. Completed October 2026</p></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <h2>Contact</h2>
+  <p>I’m open to entry-level Data Analyst roles. The quickest way to reach me is email.</p>
+  <p><strong>Email:</strong> <a href="mailto:gagansainigs3317276@gmail.com">gagansainigs3317276@gmail.com</a></p>
+  <p><strong>Phone:</strong> <a href="tel:+919315815622">+91 9315815622</a></p>
+  <p><strong>Location:</strong> Najafgarh, West Delhi, India</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Gagan Saini</div></footer>
+<script>
+(function(){
+  var S=[
+    {n:"Exploratory Data Analysis",t:"Excel, Pivot Tables",j:"Opened the file and met 4,200 rows. Pivot table says the data is fine. The data disagrees.",b:[.5,.9,.3,.7,.4],w:1},
+    {n:"Data Cleaning",t:"Power Query",j:"Found “Delhi”, “delhi” and “Delhi ” in one column. One city, three personalities.",b:[.4,.4,.9,.4,.4],w:1},
+    {n:"Data Transformation",t:"Power Query, SQL",j:"Turned rows into columns. The data never asked, but it looks much better.",b:[.3,.5,.7,.9,1],w:0},
+    {n:"Data Validation",t:"Excel Data Validation",j:"Added a dropdown. Nobody can type “N/A maybe” in the status column anymore.",b:[.8,.8,.8,.8,.8],w:1},
+    {n:"MIS Reporting",t:"XLOOKUP, INDEX-MATCH",j:"Client report is ready. XLOOKUP did the matching and I did the chai.",b:[.6,.8,.5,.9,.7],w:0},
+    {n:"KPI Tracking and Reporting",t:"Excel dashboards",j:"Watching the KPIs like a cricket scoreboard. Every run counts.",b:[.9,.6,.8,.5,1],w:0},
+    {n:"Trend Analysis",t:"Excel charts",j:"The line goes up. I will now explain why with total confidence.",b:[.2,.35,.5,.7,.95],w:0},
+    {n:"Data Quality Checks",t:"SQL",j:"Final check done. Zero duplicates. One very happy analyst.",b:[.7,.7,.7,.7,.7],w:0}
+  ];
+  var bars=document.querySelectorAll(".bar"),chips=document.getElementById("chips"),play=document.getElementById("play"),i=0,timer=null,btns=[];
+  S.forEach(function(s,k){var b=document.createElement("button");b.type="button";b.textContent=s.n;b.onclick=function(){show(k);stop()};chips.appendChild(b);btns.push(b)});
+  function show(k){
+    i=k;var s=S[k];
+    document.getElementById("iTool").textContent=s.t;
+    document.getElementById("iName").textContent=s.n;
+    document.getElementById("iJoke").textContent=s.j;
+    document.getElementById("scrTool").textContent=s.t;
+    bars.forEach(function(r,x){r.style.transform="scaleY("+s.b[x]+")"});
+    document.getElementById("mkWarn").classList.toggle("on",!!s.w);
+    document.getElementById("mkOk").classList.toggle("on",!s.w);
+    btns.forEach(function(b,x){b.setAttribute("aria-pressed",x===k?"true":"false")});
+  }
+  function start(){stop();timer=setInterval(function(){show((i+1)%S.length)},4200);play.textContent="Pause"}
+  function stop(){if(timer){clearInterval(timer);timer=null}play.textContent="Play"}
+  play.onclick=function(){timer?stop():start()};
+  var L=[["Blank rows removed. Duplicates swept. A few knocked off the desk on purpose.","I nap between batches and wake up for Power Query.","Rule one: if a cell says “N/A maybe”, it goes."],["SQL Bot here. I ran SELECT * once and I’m still scrolling.","A clean JOIN makes me happy. Mismatched keys make my antenna twitch.","GROUP BY is my favourite game. Everyone ends up on a team."],["I hoot when a number drops.","I only blink for outliers.","The dashboard is all green. I’ll stay suspicious anyway."],["Pivot Panda here. I rotate rows into columns and never spill the bamboo.","Drag. Drop. Total. Repeat.","Show me a wall of data and I’ll show you a summary table."],["One spell and the whole column is trimmed.","Applied Steps are my spellbook. Every step is saved.","Hit Refresh and tomorrow’s messy file cleans itself."]];
+  document.querySelectorAll(".mate").forEach(function(m,k){var n=0,p=m.querySelector(".say"),sv=m.querySelector("svg");m.querySelector(".hear").onclick=function(){p.textContent=L[k][n%3];n++;sv.classList.remove("hop");void sv.getBoundingClientRect();sv.classList.add("hop")}});
+  show(0);
+  if(window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches){stop()}else{start()}
+})();
+</script>
+</body>
+</html>
